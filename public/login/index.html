@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Welcome-login</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../asset/properti-css/login.css">
+</head>
+
+<body>
+    <!-- <img class="wave" src="/public/asset/image/wave.png"> -->
+    <img src="../asset/image/wave.png" class="wave" alt="">
+    <div class="container">
+        <div class="img">
+            <!-- <img src="/public/asset/image/foto.png"> -->
+            <img src="../asset/image/foto.png" alt="">
+        </div>
+        <div class="login-content">
+            <form action="" name="login">
+                <!-- <img src="/public/asset/image/logoo.png"> -->
+                <img src="../asset/image/logoo.png" alt="">
+                <h2 class="title">Welcome</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <input type="text" name="user" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <input type="password" name="password" placeholder="password" required>
+                    </div>
+                </div>
+                <button class="btn" value="">Login </button>
+                <p>&copy;CopyrightUASNODEJS_2023</p>
+            </form>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script>
+        document.login.onsubmit = async (e) => {
+            e.preventDefault();
+            const user = document.login.user.value;
+            const pass = document.login.password.value;
+            const res = await fetch("/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    user,
+                    pass,
+                }),
+            })
+            if (res.ok) {
+                alert("Login berhasil!!")
+                location.href = "./iventory-project/dasboard.html";
+            } else {
+                const message = await res.text();
+                alert(message);
+            }
+        };
+    </script>
+
+</body>
+
+</html>

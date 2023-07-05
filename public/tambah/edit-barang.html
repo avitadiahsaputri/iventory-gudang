@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../asset/properti-css/dasboard.css">
+    <link rel="stylesheet" href="../asset/properti-css/barang.css">
+    <link rel="stylesheet" href="../asset/properti-css/tampilan.css">
+
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css'>
+    <title>iventory</title>
+</head>
+
+<body>
+    <nav id="bar">
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../asset/image/logo_toko.png" alt="">
+            </div>
+            <span class="logo_name">Simpel Inventory</span>
+        </div>
+        <div class="menu-items">
+            <ul class="side-menu">
+                <li>
+                    <a href="../iventory-project/dasboard.html" class="active">
+                        <i class='bx bxs-dashboard icon'></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="divider" data-text="Menu">menu utama</li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-server"></i>
+                        <span class="link-name">Barang</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="../iventory-project/data-barang.html">Data Barang</a></li>
+                        <li><a href="../iventory-project/jenis-barang.html">Jenis Barang</a></li>
+                        <li><a href="../iventory-project/satuan.html">Satuan Barang</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-chart-line"></i>
+                        <span class="link-name">Transaksi</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="../iventory-project/barang-masuk.html">Barang Masuk</a></li>
+                        <li><a href="../iventory-project/barang-masuk.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-file-exclamation-alt"></i>
+                        <span class="link-name">Laporan</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="../iventory-project/stok-barang.html">Stok Barang</a></li>
+                        <li><a href="../iventory-project/lap-barang-masuk.html">Barang Masuk</a></li>
+                        <li><a href="../iventory-project/lap-barang-keluar.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li class="divider" data-text="Menu">lainnya</li>
+                <li>
+                    <a href="../iventory-project/user.html">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout-mode">
+                <li class="logout">
+                    <a href="../login/index.html">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div class="top"><i class="uil uil-bars sidebar-toggle"></i>
+            <img src="../asset/image/propil.png" alt="">
+        </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-book-open"></i>
+                    <span class="text">Data Barang </span>
+                </div>
+                <!-- The Modal -->
+                <!-- nambah data -->
+                <div id="contact-modal">
+
+                    <!-- Modal content -->
+                    <div>
+
+                    </div>
+                    <div class="chart">
+                        <img src="../asset/image/foto.png " alt="">
+                        <div class="modal-header">
+                            <span class="text">Edit Data Barang</span>
+                            <!--  -->
+                            <form name="tambahbarang">
+                                <div class="field">
+                                    <div class="input-field">
+                                        <label>Nama Barang</label>
+                                        <input type="text" id="nama_barang" name="nama_barang" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Jenis Barang</label>
+                                        <select name="jenis_Barang" id="jenis_barang" required>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Satuan Barang</label>
+                                        <select name="satuan_Barang" id="satuan_barang" required>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary">Submit</button>
+                                    <button type="Button" type="button" onclick="goBack()">Back</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../asset/javascrpt/javascript.js"></script>
+    <script src="../asset/javascrpt/script.js"></script>
+    <!-- <script src="../asset/javascrpt/data-barang.js"></script> -->
+    <script src="../asset/javascrpt/edit-barang.js"></script>
+    <script>
+        document.querySelector(".logout").addEventListener("click", async () => {
+            const res = await fetch("/api/logout");
+            const messege = await res.text();
+            alert(messege);
+        })
+  
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

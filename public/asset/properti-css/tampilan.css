@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey: #9ea76f;
+    --dark-grey: #a73232;
+    --light: #9ea861;
+    --dark: #9c8a8a;
+    --green: #81D43A;
+    --light-green: #c3e6a5;
+    --blue: #869c95;
+    --light-blue: #020e1d;
+    --dark-blue: #0C5FCD;
+    --red: #FC3B56;
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #f2f2f2;
+
+}
+
+/* .container header {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+} */
+
+.backBtn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    max-width: 180px;
+    /* width: 50%; */
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 2px 40px;
+    background-color: var(--primary-color);
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+td a:hover {
+    background-color: #265df2;
+}
+
+
+/*  */
+
+.tablee-body {
+    background-color: var(--green);
+    width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  background-color: var(--light-green);    
+  width: 100%;
+  border-collapse:collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+  
+}
+
+.pagination {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: default;
+}
+
+/*  */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    gap: 10px;
+}
+
+table td th tr {
+    border-collapse: collapse;
+    border: 6px solid;
+}
+
+.container header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+
+.container form {
+    background-color: #020e1d;
+    position: relative;
+    margin-top: 16px;
+    min-height: 350px;
+    overflow: hidden;
+}
+
+.container form .form {
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+.container form .field {
+    display: inline;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .field .input-field {
+    display: block;
+    width: 100%;
+    flex-direction: row;
+    margin: 4px 0;
+}
+
+.input-field label {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input,
+select {
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field input :focus,
+.input-field select:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+table #example .container {
+    width: 100%;
+    margin-inline-start: -31px;
+    border: 1px;
+}
+
+.container td a form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 180px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 20px 40px;
+    background-color: var(--primary-color);
+    transition: all 0.3s linear;
+    cursor: pointer;
+
+}
+
+a .btnText {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #fff;
+
+}
+
+.container form .btnText span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+form button:hover {
+    background-color: #265df2;
+}
+
+form .buttons {
+    margin-left: 30px;
+    align-items: center;
+}
+
+form .buttons span button .backBtn {
+    margin-right: 40px;
+    text-decoration: none;
+}
+
+.container tr td a .button {
+    background-color: hsl(224, 89%, 55%);
+    text-decoration: none;
+}
+
+form button,
+span .button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    max-width: 125px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px 10px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+
+}
+
+@media (max-width: 1500px) {
+    .container form {
+        overflow-y: scroll;
+    }
+
+    .container form::-webkit-scrollbar {
+        display: none;
+    }
+
+    form .fields .input-field {
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field {
+        width: 100%;
+    }
+}

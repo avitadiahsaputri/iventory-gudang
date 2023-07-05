@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../asset/properti-css/dasboard.css">
+    <link rel="stylesheet" href="../asset/properti-css/barang.css">
+    <link rel="stylesheet" href="../asset/properti-css/tampilan.css">
+
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css'>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <nav id="bar">
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../asset/image/logo_toko.png" alt="">
+            </div>
+            <span class="logo_name">Simpel Inventory</span>
+        </div>
+        <div class="menu-items">
+            <ul class="side-menu">
+                <li>
+                    <a href="dasboard.html" class="active">
+                        <i class='bx bxs-dashboard icon'></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="divider" data-text="Menu">menu utama</li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-server"></i>
+                        <span class="link-name">Barang</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="data-barang.html">Data Barang</a></li>
+                        <li><a href="jenis-barang.html">Jenis Barang</a></li>
+                        <li><a href="satuan.html">Satuan Barang</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-chart-line"></i>
+                        <span class="link-name">Transaksi</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="barang-masuk.html">Barang Masuk</a></li>
+                        <li><a href="barang-keluar.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-file-exclamation-alt"></i>
+                        <span class="link-name">Laporan</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="stok-barang.html">Stok Barang</a></li>
+                        <li><a href="lap-barang-keluar.html">Barang Masuk</a></li>
+                        <li><a href="lap-barang-masuk.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li class="divider" data-text="Menu">lainnya</li>
+                <li>
+                    <a href="user.html">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout-mode">
+                <li class="logout">
+                    <a href="">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div class="top"><i class="uil uil-bars sidebar-toggle"></i>
+            <img src="../asset/image/propil.png" alt="">
+        </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-thumbs-up"></i>
+                        <span class="text">Selamat Datang Admin di Simpel Inventory </span>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <i class="uil uil-book-open"></i>
+                <span class="text">Data Stok Barang</span>
+            </div>
+            <!-- The Modal -->
+            <div id="contact-modal" class="modal">
+                <!-- <div class="modal"> -->
+                <table class="modal-tabel">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>kode Barang</th>
+                            <th>Nama barang</th>
+                            <th>jenis barang</th>
+                            <th>stok</th>
+                            <th>satuan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Data tabel akan di-generate menggunakan JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- </div> -->
+        </div>
+        </div>
+    </section>
+
+    <script src="../asset/javascrpt/javascript.js"></script>
+    <script src="../asset/javascrpt/script.js"></script>
+    <script>
+        document.querySelector(".logout").addEventListener("click", async () => {
+            const res = await fetch("/api/logout");
+            const messege = await res.text();
+            alert(messege);
+            location.href = '../login/index.html';
+        })
+    </script>
+
+    <script>
+
+        fetch('/api/views/dbarang')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('table-body');
+                for (let i = 0; i < data.length; i++) {
+                    const tr = document.createElement("tr");
+
+                    const tdNomor = document.createElement("td");
+                    tdNomor.textContent = i + 1;
+                    tr.appendChild(tdNomor);
+
+                    const tdBarang = document.createElement("td");
+                    tdBarang.textContent = data[i].kode_barang;
+                    tr.appendChild(tdBarang);
+
+                    const tdNama = document.createElement("td");
+                    tdNama.textContent = data[i].nama_barang;
+                    tr.appendChild(tdNama);
+
+                    const tdJenis = document.createElement("td");
+                    tdJenis.textContent = data[i].nama_jenis;
+                    tr.appendChild(tdJenis);
+
+                    const tdStok = document.createElement("td");
+                    tdStok.textContent = data[i].stok;
+                    tr.appendChild(tdStok);
+
+                    const tdSatuan = document.createElement("td");
+                    tdSatuan.textContent = data[i].nama_satuan;
+                    tr.appendChild(tdSatuan);
+
+                    tableBody.appendChild(tr);
+                }
+            })
+            .catch(error => console.error(error));
+
+    </script>
+</body>
+
+</html>

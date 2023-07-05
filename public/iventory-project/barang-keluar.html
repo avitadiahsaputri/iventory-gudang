@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../asset/properti-css/dasboard.css">
+    <link rel="stylesheet" href="../asset/properti-css/barang.css">
+    <link rel="stylesheet" href="../asset/properti-css/tampilan.css">
+
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css'>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <nav id="bar">
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="../asset/image/logo_toko.png" alt="">
+            </div>
+            <span class="logo_name">Simpel Inventory</span>
+        </div>
+        <div class="menu-items">
+            <ul class="side-menu">
+                <li>
+                    <a href="dasboard.html" class="active">
+                        <i class='bx bxs-dashboard icon'></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="divider" data-text="Menu">menu utama</li>
+                <li >
+                    <a href="#">
+                        <i class="uil uil-server"></i>
+                        <span class="link-name">Barang</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="data-barang.html">Data Barang</a></li>
+                        <li><a href="jenis-barang.html">Jenis Barang</a></li>
+                        <li><a href="satuan.html">Satuan Barang</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-chart-line"></i>
+                        <span class="link-name">Transaksi</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="barang-masuk.html">Barang Masuk</a></li>
+                        <li><a href="barang-keluar.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="uil uil-file-exclamation-alt"></i>
+                        <span class="link-name">Laporan</span>
+                    </a>
+                    <ul class="side-dropdown">
+                        <li><a href="stok-barang.html">Stok Barang</a></li>
+                        <li><a href="lap-barang-masuk.html">Barang Masuk</a></li>
+                        <li><a href="lap-barang-keluar.html">Barang Keluar</a></li>
+                    </ul>
+                </li>
+                <li class="divider" data-text="Menu">lainnya</li>
+                <li>
+                    <a href="user.html">
+                        <i class="uil uil-user"></i>
+                        <span class="link-name">User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="logout-mode">
+                <li class="logout">
+                    <a href="../login/index.html">
+                        <i class="uil uil-signout"></i>
+                        <span class="link-name">Logout</span>
+                    </a>
+                </li>
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="dashboard">
+        <div class="top"><i class="uil uil-bars sidebar-toggle"></i>
+
+            <!-- <div class="search-box">
+                        <i class="uil uil-search"></i>
+                        <input type="text" placeholder="Search here...">
+                    </div> -->
+            <img src="../asset/image/propil.png" alt="">
+        </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-book-open"></i>
+                    <span class="text">Data Barang Keluar</span>
+                </div>
+                <form class="id">
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <button type="submit" class="btn" onclick="openPopup()">
+                                <a href="../tambah/tam_buku.html">
+                                    <i class="uil uil-plus-circle"></i>
+                                    <span>tambah data</span>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- The Modal -->
+                    <div id="contact-modal">
+
+                        <!-- Modal content -->
+                        <div class="popup" id="popup">
+                            <img src="../asset/image/foto.png " alt="">
+                            <div class="modal-header">
+                                <span class="text">Tambah Data Barang</span>
+                                <!--  -->
+                                <form action="" name="barang">
+                                    <div class="field">
+                                        <div class="input-field">
+                                            <label for="tanggal">Tanggal</label>
+                                            <input type="date" id="tanggal" name="tanggal" required>
+                                        </div>
+                                        <div class="input-field">
+                                            <label>Nama Barang</label>
+                                            <select name="namaBarang" id="namaa" required>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="jumlah">Jumlah keluar:</label>
+                                            <input type="number" id="jumlah" name="jumlah" min="1" max="100"
+                                                value="value">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary">Submit</button>
+                                        <button type="button" onclick="closePopup()">Back</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </form>
+            </div>
+            <div class="modal">
+                <table class="modal-tabel">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>kode Barang</th>
+                            <th>Nama barang</th>
+                            <th>jumlah keluar</th>
+                            <th colspan="3">aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Data tabel akan di-generate menggunakan JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="../asset/javascrpt/javascript.js"></script>
+    <script src="../asset/javascrpt/script.js"></script>
+    <script src="../asset/javascrpt/popup.js"></script>
+    <script src="../asset/javascrpt/barang-keluar.js"></script>
+    <script>
+        document.querySelector(".logout").addEventListener("click", async () => {
+            const res = await fetch("/api/logout");
+            const messege = await res.text();
+            alert(messege);
+            location.href = '../login/index.html';
+        })
+    </script>
+
+</body>
+
+</html>
